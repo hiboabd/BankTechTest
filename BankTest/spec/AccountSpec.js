@@ -40,5 +40,13 @@ describe('Account', () => {
    });
  })
 
-
+ describe('viewStatement', () => {
+   it('prints statement in table', () => {
+     account.makeDeposit(1500);
+     account.makeWithdrawal(500);
+     expect(account.viewStatement()).toEqual(`date || credit || debit || balance
+     15/06/2020 || || 500.00 || 1000.00
+     15/06/2020 || 1500.00 || || 1500.00`)
+   });
+ })
 })
