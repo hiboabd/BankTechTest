@@ -23,7 +23,7 @@ describe('Account', () => {
 
    it('adds date, credit amount and balance to account history', () => {
      account.makeDeposit(500);
-     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: 500, debit: " ", balance: 500}]);
+     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: "500.00", debit: " ", balance: "500.00"}]);
    });
  });
 
@@ -36,7 +36,7 @@ describe('Account', () => {
 
    it('adds date, debit amount and balance to account history', () => {
      account.makeWithdrawal(500);
-     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: " ", debit: 500, balance: -500}]);
+     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: " ", debit: "500.00", balance: "-500.00"}]);
    });
  })
 
@@ -44,9 +44,7 @@ describe('Account', () => {
    it('prints statement in table', () => {
      account.makeDeposit(1500);
      account.makeWithdrawal(500);
-     expect(account.viewStatement()).toEqual(`date || credit || debit || balance
-     15/06/2020 || || 500.00 || 1000.00
-     15/06/2020 || 1500.00 || || 1500.00`)
+     expect(account.viewStatement()).toMatch(`date || credit || debit || balance \n 15/06/2020 ||   || 500.00 || 1000.00 \n 15/06/2020 || 1500.00 ||   || 1500.00`)
    });
  })
 })
