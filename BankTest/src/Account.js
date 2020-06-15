@@ -4,7 +4,7 @@ class Account {
   constructor() {
     this.balance = 0;
     this.accountHistory = [];
-    this.tableHeader = `date || credit || debit || balance`
+    this.printer = new Printer();
   }
 
   formatDate(date){
@@ -24,13 +24,6 @@ class Account {
   }
 
   viewStatement(){
-    var statement = this.tableHeader
-    this.accountHistory.forEach((transaction) => {
-      statement += `\n`
-      for(const property in transaction){
-        statement += `${transaction[property]} || `
-      }
-      statement = statement.slice(0, statement.length - 3);
-    });
+    this.printer.printStatement(this.accountHistory);
   }
 };
