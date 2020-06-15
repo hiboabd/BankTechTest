@@ -14,6 +14,12 @@ describe('Account', () => {
    expect(account.accountHistory).toEqual([]);
  });
 
+ describe('formatDate', () => {
+   it('formats the date into a string', () => {
+     expect(account.formatDate(new Date())).toEqual(`15/06/2020`);
+   });
+ });
+
  describe('makeDeposit', () => {
    it('increments balance by 500', () => {
      account.makeDeposit(500);
