@@ -11,7 +11,7 @@ describe('Account', () => {
  });
 
  it('initialises with empty account history', () => {
-   expect(account.accountHistory).toEqual({});
+   expect(account.accountHistory).toEqual([]);
  });
 
  describe('makeDeposit', () => {
@@ -19,6 +19,6 @@ describe('Account', () => {
      account.makeDeposit(500);
      expect(account.balance).not.toEqual(0);
      expect(account.balance).toEqual(500);
-   })
+   });
  })
 })
