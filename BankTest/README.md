@@ -65,7 +65,7 @@ viewStatement()
   * Requires a record of the dates and amounts of previous deposits and withdrawals (the account history)
 
 this.accountHistory
-  * A hash that keeps a record of the information when a deposit or withdrawal is made
+  * An array of objects that keeps a record of the transactions a user has made
   * Deposits are stored in a credit key
   * Withdrawals are stored in a debit key
 
