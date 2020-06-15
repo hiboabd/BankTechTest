@@ -3,6 +3,7 @@ class Account {
 
   constructor() {
     this.balance = 0;
+    this.accountHistory = {};
   }
 
   makeDeposit(amount){
