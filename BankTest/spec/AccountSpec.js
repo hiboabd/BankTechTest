@@ -23,7 +23,7 @@ describe('Account', () => {
 
    it('adds date, credit amount and balance to account history', () => {
      account.makeDeposit(500);
-     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: 500, balance: 500}]);
+     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: 500, debit: " ", balance: 500}]);
    });
  });
 
@@ -36,7 +36,9 @@ describe('Account', () => {
 
    it('adds date, debit amount and balance to account history', () => {
      account.makeWithdrawal(500);
-     expect(account.accountHistory).toEqual([{date: '15/06/2020', debit: 500, balance: -500}]);
+     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: " ", debit: 500, balance: -500}]);
    });
  })
+
+
 })
