@@ -9,12 +9,12 @@ class Account {
   makeDeposit(amount, date=new Date()){
     this.balance += amount;
     date = date.toLocaleDateString() //formatting date to 'dd/mm/yyyy' format
-    this.accountHistory.unshift({date: date, credit: amount, balance: this.balance})
+    this.accountHistory.unshift({date: date, credit: amount, debit: " ", balance: this.balance})
   }
 
   makeWithdrawal(amount, date=new Date()){
     this.balance -= amount;
     date = date.toLocaleDateString() //formatting date to 'dd/mm/yyyy' format
-    this.accountHistory.unshift({date: date, debit: amount, balance: this.balance})
+    this.accountHistory.unshift({date: date, credit: " ", debit: amount, balance: this.balance})
   }
 };
