@@ -8,7 +8,11 @@ class Account {
 
   makeDeposit(amount, date=new Date()){
     this.balance += amount;
-    date = date.toLocaleDateString() //formatting date to '15/06/2020' format
+    date = date.toLocaleDateString() //formatting date to 'dd/mm/yyyy' format
     this.accountHistory.unshift({date: date, credit: amount, balance: this.balance})
+  }
+
+  makeWithdrawal(amount){
+    this.balance -= amount;
   }
 };
