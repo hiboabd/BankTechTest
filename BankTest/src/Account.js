@@ -6,7 +6,9 @@ class Account {
     this.accountHistory = [];
   }
 
-  makeDeposit(amount){
+  makeDeposit(amount, date=new Date()){
     this.balance += amount;
+    date = date.toLocaleDateString() //formatting date to '15/06/2020' format
+    this.accountHistory.unshift({date: date, credit: amount, balance: this.balance})
   }
 };
