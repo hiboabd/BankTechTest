@@ -12,5 +12,6 @@ class Printer {
       }
       statement = statement.slice(0, statement.length - 3);
     });
+    return statement
   }
 }

@@ -26,7 +26,7 @@ class Account {
   }
 
   viewStatement(){
-    this.printer.printStatement(this.accountHistory);
+    return this.printer.printStatement(this.accountHistory);
   }
 
   inputError(){
