@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bank Tech Test</title>
+    <script src="./src/Account.js"></script>
+    <script src="./src/Printer.js"></script>
+  </head>
+  <body>
+    <h1>Bank Tech Test</h1>
+    <h3>To make a bank account and get started, right click on this page and click inspect in the drop down menu.
+      <br/>
+      <br/>
+      The Google Developer tools should open on the right hand side.
+      <br/>
+      <br/>
+      Click on the console tab and type in the commands listed below to use the Bank Tech Test. </h3>
+    <h3>The run commands listed are as follows: </h3>
+      <ul>
+        <li> <em> var [your_account_name] = new Account() </em>  - To make a new account</li>
+        <li> <em> [your_account_name].makeDeposit(amount) </em> - To make a deposit. The amount entered must be a positive integer.</li>
+        <li> <em> [your_account_name].makeWithdrawal(amount) </em> - To make a withdrawal. The amount entered must be a positive integer.</li>
+        <li> <em> your_account_name].viewStatement </em> - To view your transaction history. A table will be printed to your console.</li>
+      </ul>
+
+    <h3>Here's an example you could follow to get started:</h3>
+      <ul>
+        <li> Start by making an Account with <em> var my_account = new Account() </em> </li>
+        <li> Deposit £1000 into your account <em> my_account.makeDeposit(1000) </em> </li>
+        <li> Withdraw £500 from your account <em> my_account.makeWithdrawal(500) </em> </li>
+        <li> Print your bank statement <em> my_account.viewStatement() </em> </li>
+      </ul>
+  </body>
+</html>
