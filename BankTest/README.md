@@ -61,9 +61,10 @@ I would like to be able to view a bank statement
 
 Class | Methods | Instance variables
 ------------ | ------------- | -------------
-Account | makeDeposit() | this.balance
-        | makeWithdrawal() | this.date
-        | viewStatement() | this.accountHistory
+| Account | makeDeposit() | this.balance |
+|         | makeWithdrawal() | this.accountHistory |
+|         | viewStatement() |  this.printer |
+| Printer | printStatement() |  |
 
 
 makeDeposit()
