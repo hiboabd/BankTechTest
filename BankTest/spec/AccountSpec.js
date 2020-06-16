@@ -33,6 +33,10 @@ describe('Account', () => {
      expect(function() { account.makeDeposit(-10); }).toThrowError(TypeError, 'You must input a positive integer.');
    });
 
+   it('returns error if amount is less than 0', () => {
+     expect(function() { account.makeDeposit('test'); }).toThrowError(TypeError, 'You must input a positive integer.');
+   });
+
    it('adds date, credit amount and balance to account history', () => {
      account.makeDeposit(500);
      expect(account.accountHistory).toEqual([{date: date, credit: "500.00", debit: " ", balance: "500.00"}]);
@@ -48,6 +52,10 @@ describe('Account', () => {
 
    it('returns error if amount is less than 0', () => {
      expect(function(){ account.makeWithdrawal(-10); }).toThrowError(TypeError, 'You must input a positive integer.');
+   });
+
+   it('returns error if amount is a string', () => {
+     expect(function(){ account.makeWithdrawal('test'); }).toThrowError(TypeError, 'You must input a positive integer.');
    });
 
    it('adds date, debit amount and balance to account history', () => {
