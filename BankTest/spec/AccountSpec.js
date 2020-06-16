@@ -75,7 +75,6 @@ describe('Account', () => {
      account.makeDeposit(1500);
      account.makeWithdrawal(500);
      expect(account.viewStatement()).toBe("Printed statement")
-     // expect(account.viewStatement()).toBe(`date || credit || debit || balance\n${date} ||   || 500.00 || 1000.00 \n${date} || 1500.00 ||   || 1500.00 `)
    });
  })
 })

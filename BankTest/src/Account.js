@@ -1,10 +1,10 @@
 class Account {
   'use strict'
 
-  constructor() {
+  constructor(printer=new Printer()) {
     this.balance = 0;
     this.accountHistory = [];
-    this.printer = new Printer();
+    this.printer = printer;
   }
 
   formatDate(date){
