@@ -3,6 +3,7 @@ describe('Account', () => {
  var account;
  var date;
  var printer;
+ var date2;
 
  beforeEach(() => {
    printer = {
@@ -11,7 +12,7 @@ describe('Account', () => {
      }
    };
    account = new Account(printer);
-   date = new Date().toLocaleDateString();
+   date = '15/06/2020'
  });
 
  it('initialises with a balance of 0', () => {
@@ -24,7 +25,8 @@ describe('Account', () => {
 
  describe('formatDate', () => {
    it('formats the date into a string', () => {
-     expect(account.formatDate(new Date())).toEqual(date);
+     date2 = new Date().toLocaleDateString();
+     expect(account.formatDate(new Date())).toEqual(date2);
    });
  });
 
@@ -44,8 +46,9 @@ describe('Account', () => {
    });
 
    it('adds date, credit amount and balance to account history', () => {
+     spyOn(account, "formatDate").and.returnValue('15/06/2020');
      account.makeDeposit(500);
-     expect(account.accountHistory).toEqual([{date: date, credit: "500.00", debit: " ", balance: "500.00"}]);
+     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: "500.00", debit: " ", balance: "500.00"}]);
    });
  });
 
@@ -65,8 +68,9 @@ describe('Account', () => {
    });
 
    it('adds date, debit amount and balance to account history', () => {
+     spyOn(account, "formatDate").and.returnValue('15/06/2020');
      account.makeWithdrawal(500);
-     expect(account.accountHistory).toEqual([{date: date, credit: " ", debit: "500.00", balance: "-500.00"}]);
+     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: " ", debit: "500.00", balance: "-500.00"}]);
    });
  })
 

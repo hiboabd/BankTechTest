@@ -12,16 +12,16 @@ class Account {
   }
 
   makeDeposit(amount, date=new Date()){
-    if(amount < 0 || typeof amount !== "number"){ return this.inputError() }
-    this.balance += amount;
+    this.inputError(amount)
     date = this.formatDate(date);
+    this.balance += amount;
     this.accountHistory.unshift({date: date, credit: amount.toFixed(2), debit: " ", balance: this.balance.toFixed(2)})
   }
 
   makeWithdrawal(amount, date=new Date()){
-    if(amount < 0 || typeof amount !== "number"){ return this.inputError() }
-    this.balance -= amount;
+    this.inputError(amount)
     date = this.formatDate(date);
+    this.balance -= amount;
     this.accountHistory.unshift({date: date, credit: " ", debit: amount.toFixed(2), balance: this.balance.toFixed(2)})
   }
 
@@ -29,7 +29,9 @@ class Account {
     return this.printer.printStatement(this.accountHistory);
   }
 
-  inputError(){
-    throw new TypeError('You must input a positive integer.');
+  inputError(amount){
+    if(amount < 0 || typeof amount !== "number"){
+      throw new TypeError('You must input a positive integer.');
+    }
   }
 };
