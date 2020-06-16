@@ -2,9 +2,15 @@ describe('Account', () => {
  'use strict'
  var account;
  var date;
+ var printer;
 
  beforeEach(() => {
-   account = new Account();
+   printer = {
+     printStatement: function(accountHistory){
+       return "Printed statement"
+     }
+   };
+   account = new Account(printer);
    date = new Date().toLocaleDateString();
  });
 
@@ -68,7 +74,8 @@ describe('Account', () => {
    it('prints statement in table', () => {
      account.makeDeposit(1500);
      account.makeWithdrawal(500);
-     expect(account.viewStatement()).toBe(`date || credit || debit || balance\n${date} ||   || 500.00 || 1000.00 \n${date} || 1500.00 ||   || 1500.00 `)
+     expect(account.viewStatement()).toBe("Printed statement")
+     // expect(account.viewStatement()).toBe(`date || credit || debit || balance\n${date} ||   || 500.00 || 1000.00 \n${date} || 1500.00 ||   || 1500.00 `)
    });
  })
 })
