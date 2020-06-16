@@ -12,14 +12,14 @@ class Account {
   }
 
   makeDeposit(amount, date=new Date()){
-    if(amount < 0){ return this.inputError() }
+    if(amount < 0 || typeof amount !== "number"){ return this.inputError() }
     this.balance += amount;
     date = this.formatDate(date);
     this.accountHistory.unshift({date: date, credit: amount.toFixed(2), debit: " ", balance: this.balance.toFixed(2)})
   }
 
   makeWithdrawal(amount, date=new Date()){
-    if(amount < 0){ return this.inputError() }
+    if(amount < 0 || typeof amount !== "number"){ return this.inputError() }
     this.balance -= amount;
     date = this.formatDate(date);
     this.accountHistory.unshift({date: date, credit: " ", debit: amount.toFixed(2), balance: this.balance.toFixed(2)})
