@@ -30,7 +30,7 @@ Here's an example you could follow to get started:
 
 This is what you should see:
 
-[Expected output](Example.png)
+![Expected output](Example.png)
 
 ## Planning
 
