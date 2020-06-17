@@ -27,7 +27,8 @@ class Account {
   }
 
   viewStatement(){
-    return this.printer.printStatement(this.accountHistory);
+    this.getBalance();
+    return this.printer.printStatement(this.accountHistory, this.balanceRecord);
   }
 
   getBalance(){
