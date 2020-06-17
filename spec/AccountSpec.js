@@ -31,12 +31,6 @@ describe('Account', () => {
  });
 
  describe('makeDeposit', () => {
-   it('increments balance by 500', () => {
-     account.makeDeposit(500);
-     expect(account.balance).not.toEqual(0);
-     expect(account.balance).toEqual(500);
-   });
-
    it('returns error if amount is less than 0', () => {
      expect(function() { account.makeDeposit(-10); }).toThrowError(TypeError, 'You must input a positive integer.');
    });
@@ -53,12 +47,6 @@ describe('Account', () => {
  });
 
  describe('makeWithdrawal', () => {
-   it('decrements balance by 500', () => {
-     account.makeWithdrawal(500);
-     expect(account.balance).not.toEqual(0);
-     expect(account.balance).toEqual(-500);
-   });
-
    it('returns error if amount is less than 0', () => {
      expect(function(){ account.makeWithdrawal(-10); }).toThrowError(TypeError, 'You must input a positive integer.');
    });

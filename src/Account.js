@@ -14,15 +14,13 @@ class Account {
   makeDeposit(amount, date=new Date()){
     this.inputError(amount)
     date = this.formatDate(date);
-    this.balance += amount;
-    this.accountHistory.unshift({date: date, credit: amount.toFixed(2), debit: " ", balance: this.balance.toFixed(2)})
+    this.accountHistory.unshift({date: date, credit: amount.toFixed(2), debit: " "})
   }
 
   makeWithdrawal(amount, date=new Date()){
     this.inputError(amount)
     date = this.formatDate(date);
-    this.balance -= amount;
-    this.accountHistory.unshift({date: date, credit: " ", debit: amount.toFixed(2), balance: this.balance.toFixed(2)})
+    this.accountHistory.unshift({date: date, credit: " ", debit: amount.toFixed(2)})
   }
 
   viewStatement(){
