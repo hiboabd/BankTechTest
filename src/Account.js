@@ -14,14 +14,14 @@ class Account {
   makeDeposit(amount, date=new Date()){
     this.inputError(amount)
     date = this.formatDate(date);
-    var transaction = new Transaction(amount, date)
+    var transaction = new Transaction(amount, date, 'Deposit')
     this.accountHistory.push(transaction)
   }
 
   makeWithdrawal(amount, date=new Date()){
     this.inputError(amount)
     date = this.formatDate(date);
-    var transaction = new Transaction(amount, date)
+    var transaction = new Transaction(amount, date, 'Withdrawal')
     this.accountHistory.push(transaction)
   }
 
