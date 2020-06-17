@@ -3,6 +3,7 @@ class Account {
 
   constructor(printer=new Printer()) {
     this.balance = 0;
+    this.balanceRecord = [];
     this.accountHistory = [];
     this.printer = printer;
   }
@@ -27,6 +28,17 @@ class Account {
 
   viewStatement(){
     return this.printer.printStatement(this.accountHistory);
+  }
+
+  getBalance(){
+    this.accountHistory.forEach((transaction, i) => {
+      if(transaction.type === 'Deposit'){
+        this.balance += transaction.amount
+      }else{
+        this.balance -= transaction.amount
+      }
+      this.balanceRecord.push(this.balance)
+    });
   }
 
   inputError(amount){
