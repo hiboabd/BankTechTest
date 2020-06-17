@@ -86,6 +86,10 @@ this.accountHistory
 
 ## New Class Responsibility Collaborator
 
+I modified my approach after receiving feedback on my test. The feedback stated that I should only calculate the balance total when needed aka when printing a statement to mimic a real banks practice and so the following CRC table is my plan for how I would modify my code.
+
+I decided to add a new transaction object which would hold the transaction information, alleviating some storage responsibility from the account class. I then decided to add a new function - getBalance() which would calculate the balance when called by the print statement. I then realised the print statement function would require an additional parameter for the balance information as that would now be stored separately to the transaction objects.
+
   Class | Methods | Instance variables
   ------------ | ------------- | -------------
   | Account | makeDeposit() | this.balance |
@@ -107,14 +111,15 @@ this.accountHistory
   viewStatement()
     * Will show the account history
     * Requires a record of the dates and amounts of previous deposits and withdrawals (the account history)
+    * Also requires balance information 
 
   this.accountHistory
     * An array of transaction objects that keeps a record of the transactions a user has made
 
   getBalance()
     * Sums the amount of each transaction object
-    * Pushes each result to an array of balances 
-    * Must start from the end of the array of objects  
+    * Pushes each result to an array of balances
+    * Will be called by viewStatement()
 
   Transaction object
     * Each instance stores the date and transaction amount
