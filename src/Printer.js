@@ -3,15 +3,22 @@ class Printer {
     this.tableHeader = `date || credit || debit || balance`
   }
 
-  printStatement(accountHistory){
+  printStatement(accountHistory, balanceRecord){
     var statement = this.tableHeader
-    accountHistory.forEach((transaction) => {
+
+    for(var i = accountHistory.length - 1; i >= 0; i--){
       statement += `\n`
-      for(const property in transaction){
-        statement += `${transaction[property]} || `
+      statement += `${accountHistory[i].date} || `
+      if(accountHistory[i].type === 'Deposit'){
+        statement += accountHistory[i].amount.toFixed(2) + ` || `
+        statement += `  || `
+        statement += balanceRecord[i].toFixed(2)
+      }else{
+        statement += `  || `
+        statement += accountHistory[i].amount.toFixed(2) + ` || `
+        statement += balanceRecord[i].toFixed(2)
       }
-      statement = statement.slice(0, statement.length - 3);
-    });
+    }
     return statement
   }
 }
