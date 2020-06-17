@@ -12,12 +12,11 @@ class Printer {
       if(accountHistory[i].type === 'Deposit'){
         statement += accountHistory[i].amount.toFixed(2) + ` || `
         statement += `  || `
-        statement += balanceRecord[i].toFixed(2)
       }else{
         statement += `  || `
         statement += accountHistory[i].amount.toFixed(2) + ` || `
-        statement += balanceRecord[i].toFixed(2)
       }
+      statement += balanceRecord[i].toFixed(2)
     }
     return statement
   }
