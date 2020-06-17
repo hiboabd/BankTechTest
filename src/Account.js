@@ -21,7 +21,8 @@ class Account {
   makeWithdrawal(amount, date=new Date()){
     this.inputError(amount)
     date = this.formatDate(date);
-    this.accountHistory.unshift({date: date, credit: " ", debit: amount.toFixed(2)})
+    var transaction = new Transaction(amount, date)
+    this.accountHistory.push(transaction)
   }
 
   viewStatement(){
