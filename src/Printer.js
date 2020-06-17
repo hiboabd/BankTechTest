@@ -10,11 +10,9 @@ class Printer {
       statement += `\n`
       statement += `${accountHistory[i].date} || `
       if(accountHistory[i].type === 'Deposit'){
-        statement += accountHistory[i].amount.toFixed(2) + ` || `
-        statement += `  || `
+        statement += accountHistory[i].amount.toFixed(2) + ` ||   || `
       }else{
-        statement += `  || `
-        statement += accountHistory[i].amount.toFixed(2) + ` || `
+        statement += `  || ` + accountHistory[i].amount.toFixed(2) + ` || `
       }
       statement += balanceRecord[i].toFixed(2)
     }
