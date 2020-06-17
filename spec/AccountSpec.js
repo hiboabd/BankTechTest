@@ -64,7 +64,7 @@ describe('Account', () => {
      spyOn(account, "formatDate").and.returnValue('15/06/2020');
      account.makeDeposit(500);
      expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
-      amount: -500
+      amount: 500
     }));
     expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
      date: '15/06/2020'
