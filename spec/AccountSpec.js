@@ -95,4 +95,17 @@ describe('Account', () => {
      expect(account.balanceRecord[1]).toEqual(1000)
    });
  });
+
+ describe('Feature test', () => {
+   it('prints statement with earliest balance = 1500.00', () => {
+     var account2 = new Account()
+     account2.makeDeposit(1500);
+     account2.makeWithdrawal(500);
+     account2.makeWithdrawal(250);
+     expect(account2.viewStatement()).toEqual(`date || credit || debit || balance` +
+       `\n`+`17/06/2020 ||   || 250.00 || 750.00` +
+       `\n`+`17/06/2020 ||   || 500.00 || 1000.00` +
+       `\n`+`17/06/2020 || 1500.00 ||   || 1500.00`)
+   });
+ });
 })
