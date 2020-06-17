@@ -47,7 +47,10 @@ describe('Account', () => {
     }));
     expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
      date: '15/06/2020'
-   }));
+    }));
+    expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
+     type: 'Deposit'
+    }));
    });
  });
 
@@ -62,13 +65,16 @@ describe('Account', () => {
 
    it('creates transaction object with date and debit amount to account history', () => {
      spyOn(account, "formatDate").and.returnValue('15/06/2020');
-     account.makeDeposit(500);
+     account.makeWithdrawal(500);
      expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
       amount: 500
     }));
     expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
      date: '15/06/2020'
-   }));
+    }));
+   expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
+    type: 'Withdrawal'
+    }));
    });
  })
 
