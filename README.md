@@ -83,3 +83,38 @@ this.accountHistory
   * An array of objects that keeps a record of the transactions a user has made
   * Deposits are stored in a credit key
   * Withdrawals are stored in a debit key
+
+## New Class Responsibility Collaborator
+
+  Class | Methods | Instance variables
+  ------------ | ------------- | -------------
+  | Account | makeDeposit() | this.balance |
+  |         | makeWithdrawal() | this.accountHistory |
+  |         | viewStatement() |  this.printer |
+  |         | getBalance()|   |
+  | Printer | printStatement() |  |
+  | Transaction |  |  |
+
+
+  makeDeposit()
+    * Requires date, amount
+    * Creates a transaction object and adds this object to the account history array
+
+  makeWithdrawal()
+    * Requires date, amount
+    * Creates a transaction object and adds this object to the account history array
+
+  viewStatement()
+    * Will show the account history
+    * Requires a record of the dates and amounts of previous deposits and withdrawals (the account history)
+
+  this.accountHistory
+    * An array of transaction objects that keeps a record of the transactions a user has made
+
+  getBalance()
+    * Sums the amount of each transaction object
+    * Pushes each result to an array of balances 
+    * Must start from the end of the array of objects  
+
+  Transaction object
+    * Each instance stores the date and transaction amount
