@@ -39,10 +39,12 @@ describe('Account', () => {
      expect(function() { account.makeDeposit('test'); }).toThrowError(TypeError, 'You must input a positive integer.');
    });
 
-   it('adds date, credit amount and balance to account history', () => {
+   it('creates transaction object with date and credit amount to account history', () => {
      spyOn(account, "formatDate").and.returnValue('15/06/2020');
      account.makeDeposit(500);
-     expect(account.accountHistory).toEqual([{date: '15/06/2020', credit: "500.00", debit: " ", balance: "500.00"}]);
+     expect(account.accountHistory[0]).toEqual(jasmine.objectContaining({
+      amount: 500
+    }));
    });
  });
 
