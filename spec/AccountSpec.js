@@ -85,4 +85,14 @@ describe('Account', () => {
      expect(account.viewStatement()).toBe("Printed statement")
    });
  })
+
+ describe('getBalance', () => {
+   it('calculates balance and stores in array', () => {
+     account.makeDeposit(1500);
+     account.makeWithdrawal(500);
+     account.getBalance();
+     expect(account.balanceRecord[0]).toEqual(1500)
+     expect(account.balanceRecord[1]).toEqual(1000)
+   });
+ });
 })
